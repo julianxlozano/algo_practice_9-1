@@ -6,5 +6,22 @@ function isValidSubsequence(array, sequence) {
 	return (trueCount === sequence.length ? true : false)
 }
 
-// Do not edit the line below.
-exports.isValidSubsequence = isValidSubsequence;
+function sortedSquaredArray(array) {
+    let newArray = []
+		let smallest = 0
+		let largest = array.length - 1
+		for (let i = 0;i < array.length; i++){
+			let smlSqr = array[smallest] * array[smallest]
+			let lrgSqr = array[largest] * array[largest]
+			if(smlSqr < lrgSqr){
+				newArray.unshift(lrgSqr)
+				largest--
+			}else{
+				newArray.unshift(smlSqr)
+			  smallest++
+			}
+		}
+		return newArray
+}
+
+
